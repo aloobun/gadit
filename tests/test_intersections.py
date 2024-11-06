@@ -1,7 +1,7 @@
 import unittest
 import math
-from intersections import Ray, Line, LineSegment, Circle
-from intersections import ray_intersects_line, line_segment_intersects_circle, ray_intersects_circle, line_segment_intersects_line
+from gadit.intersections import Ray, Line, LineSegment, Circle
+from gadit.intersections import ray_intersects_line, line_segment_intersects_circle, ray_intersects_circle, line_segment_intersects_line
 
 class TestIntersections(unittest.TestCase):
     def test_ray_intersects_line(self):
