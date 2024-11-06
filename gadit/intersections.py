@@ -1,19 +1,6 @@
 from typing import Optional, Tuple
 import math
 
-def dot(v1, v2):
-    return v1[0] * v2[0] + v1[1] * v2[1]
-
-def subtract(v1, v2):
-    return (v1[0] - v2[0], v1[1] - v2[1])
-
-def magnitude(v):
-    return math.sqrt(v[0]**2 + v[1]**2)
-
-def normalize(v):
-    mag = magnitude(v)
-    return (v[0] / mag, v[1] / mag) if mag != 0 else (0, 0)
-
 class Ray:
     def __init__(self, origin: Tuple[float, float], direction: Tuple[float, float]):
         self.origin = origin
