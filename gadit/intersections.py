@@ -1,5 +1,6 @@
 from typing import Optional, Tuple
 import math
+from .utils import dot, subtract, magnitude, normalize
 
 class Ray:
     def __init__(self, origin: Tuple[float, float], direction: Tuple[float, float]):
