@@ -1,10 +1,6 @@
 import unittest
-from gadit.curves import (
-    bezier_quadratic,
-    bezier_cubic,
-    bezier_generalized,
-    hermite_curve,
-)
+from gadit.curves import *
+
 class TestCurves(unittest.TestCase):
     def test_bezier_quadratic(self):
         p0 = (0, 0)
@@ -42,3 +38,14 @@ class TestCurves(unittest.TestCase):
         actual = hermite_curve(p0, p1, m0, m1, t)
         self.assertEqual(actual, expected)
 
+    def test_catmull_rom_spline(self):
+        p0 = (0, 0)
+        p1 = (1, 1)
+        p2 = (2, 0)
+        p3 = (3, 1)
+        t = 0.5
+        expected_x = 1.5
+        expected_y = 0.5
+        actual_x, actual_y = catmull_rom_spline(p0, p1, p2, p3, t)
+        self.assertAlmostEqual(actual_x, expected_x)
+        self.assertAlmostEqual(actual_y, expected_y)
