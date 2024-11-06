@@ -73,3 +73,25 @@ def hermite_curve(
     y = h00 * p0[1] + h10 * m0[1] + h01 * p1[1] + h11 * m1[1]
     return (x, y)
 
+
+def catmull_rom_spline(
+    p0: Tuple[float, float],
+    p1: Tuple[float, float],
+    p2: Tuple[float, float],
+    p3: Tuple[float, float],
+    t: float,
+) -> Tuple[float, float]:
+    x = 0.5 * (
+        (2 * p1[0])
+        + (-p0[0] + p2[0]) * t
+        + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t**2
+        + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t**3
+    )
+    y = 0.5 * (
+        (2 * p1[1])
+        + (-p0[1] + p2[1]) * t
+        + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t**2
+        + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t**3
+    )
+    return (x, y)
+
