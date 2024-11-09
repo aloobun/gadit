@@ -49,3 +49,15 @@ class TestCurves(unittest.TestCase):
         actual_x, actual_y = catmull_rom_spline(p0, p1, p2, p3, t)
         self.assertAlmostEqual(actual_x, expected_x)
         self.assertAlmostEqual(actual_y, expected_y)
+
+    def test_b_spline_uniform_cubic(self):
+        p0 = (0, 0)
+        p1 = (1, 1)
+        p2 = (2, 0)
+        p3 = (3, 1)
+        t = 0.5
+        expected_x = 1.5
+        expected_y = 0.5
+        actual_x, actual_y = b_spline_uniform_cubic(p0, p1, p2, p3, t)
+        self.assertAlmostEqual(actual_x, expected_x)
+        self.assertAlmostEqual(actual_y, expected_y)
