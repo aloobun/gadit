@@ -1,7 +1,6 @@
 from typing import List, Tuple
 import math
 
-
 def bezier_quadratic(
     p0: Tuple[float, float], p1: Tuple[float, float], p2: Tuple[float, float], t: float
 ) -> Tuple[float, float]:
@@ -73,7 +72,6 @@ def hermite_curve(
     y = h00 * p0[1] + h10 * m0[1] + h01 * p1[1] + h11 * m1[1]
     return (x, y)
 
-
 def catmull_rom_spline(
     p0: Tuple[float, float],
     p1: Tuple[float, float],
@@ -95,3 +93,23 @@ def catmull_rom_spline(
     )
     return (x, y)
 
+def b_spline_uniform_cubic(
+    p0: Tuple[float, float],
+    p1: Tuple[float, float],
+    p2: Tuple[float, float],
+    p3: Tuple[float, float],
+    t: float,
+) -> Tuple[float, float]:
+    x = (
+        (-t**3 + 3 * t**2 - 3 * t + 1) / 6 * p0[0]
+        + (3 * t**3 - 6 * t**2 + 4) / 6 * p1[0]
+        + (-3 * t**3 + 3 * t**2 + 3 * t + 1) / 6 * p2[0]
+        + (t**3) / 6 * p3[0]
+    )
+    y = (
+        (-t**3 + 3 * t**2 - 3 * t + 1) / 6 * p0[1]
+        + (3 * t**3 - 6 * t**2 + 4) / 6 * p1[1]
+        + (-3 * t**3 + 3 * t**2 + 3 * t + 1) / 6 * p2[1]
+        + (t**3) / 6 * p3[1]
+    )
+    return (x, y)
